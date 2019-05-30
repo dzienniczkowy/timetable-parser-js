@@ -9,7 +9,7 @@ export default class TimetableList {
 
   getListType() {
     if (this.$('form[name=form]').length > 0) {
-      return 'form';
+      return 'select';
     }
 
     if (this.$('body table').length > 0) {

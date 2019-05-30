@@ -22,20 +22,20 @@ describe('List test', () => {
     });
   });
 
-  describe('Form list', () => {
-    const formListFilename = path.join(__dirname, 'fixtures', 'lista-form.html');
-    const formListHTML = fs.readFileSync(formListFilename, {
+  describe('Select list', () => {
+    const selectListFilename = path.join(__dirname, 'fixtures', 'lista-select.html');
+    const selectListHTML = fs.readFileSync(selectListFilename, {
       encoding: 'utf8',
     });
 
     let list: TimetableList;
 
     it('Cheerio init', () => {
-      expect(() => { list = new TimetableList(formListHTML); }).not.to.throw();
+      expect(() => { list = new TimetableList(selectListHTML); }).not.to.throw();
     });
 
     it('List type check', () => {
-      expect(list.getListType()).to.equal('form');
+      expect(list.getListType()).to.equal('select');
     });
   });
 
