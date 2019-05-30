@@ -1,0 +1,30 @@
+{
+  "name": "timetable-parser",
+  "version": "1.0.0",
+  "description": "VULCAN Optivum Timetable parser for JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "./node_modules/.bin/eslint ./lib/ ./test/ --ext .js,.ts",
+    "lint:fix": "./node_modules/.bin/eslint ./lib/ ./test/ --ext .js,.ts --fix",
+    "test": "mocha --reporter spec --require ts-node/register test/**/*.ts"
+  },
+  "author": "Dominik Korsa <dominik.korsa@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/mocha": "^5.2.6",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "mocha": "^6.1.4",
+    "ts-node": "^8.2.0",
+    "typescript": "^3.5.1"
+  },
+  "dependencies": {
+    "@types/cheerio": "^0.22.11",
+    "cheerio": "^0.22.0"
+  }
+}
