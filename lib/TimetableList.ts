@@ -3,11 +3,11 @@ import * as cheerio from 'cheerio';
 export default class TimetableList {
   public $: CheerioStatic;
 
-  constructor(html: string) {
+  public constructor(html: string) {
     this.$ = cheerio.load(html);
   }
 
-  getListType() {
+  public getListType(): string {
     if (this.$('form[name=form]').length > 0) {
       return 'select';
     }

@@ -24,6 +24,7 @@
     "typescript": "^3.5.1"
   },
   "dependencies": {
+    "@types/chai": "^4.1.7",
     "@types/cheerio": "^0.22.11",
     "cheerio": "^0.22.0"
   }
