@@ -10,14 +10,30 @@ describe('List test', (): void => {
       encoding: 'utf8',
     });
 
-    let list: TimetableList;
+    const list: TimetableList = new TimetableList(expandableListHTML);
 
     it('Cheerio init', (): void => {
-      expect((): void => { list = new TimetableList(expandableListHTML); }).not.to.throw();
+      expect((): TimetableList => new TimetableList(expandableListHTML)).not.to.throw();
     });
 
     it('List type check', (): void => {
       expect(list.getListType()).to.equal('expandable');
+    });
+
+    it('Return value check', (): void => {
+      const nodesList = list.getList();
+      expect(nodesList.classes[0].name).to.equal('1Tc');
+      expect(nodesList.classes[0].value).to.equal('1');
+      expect(nodesList.classes[1].name).to.equal('1Ti');
+      expect(nodesList.classes[1].value).to.equal('2');
+      expect(nodesList.teachers[0].name).to.equal('I.Ochocki (Io)');
+      expect(nodesList.teachers[0].value).to.equal('1');
+      expect(nodesList.teachers[1].name).to.equal('M.Oleszkiewicz (Mo)');
+      expect(nodesList.teachers[1].value).to.equal('3');
+      expect(nodesList.rooms[0].name).to.equal('16 prac. geograficzna');
+      expect(nodesList.rooms[0].value).to.equal('1');
+      expect(nodesList.rooms[1].name).to.equal('17 prac. fizyczna');
+      expect(nodesList.rooms[1].value).to.equal('2');
     });
   });
 

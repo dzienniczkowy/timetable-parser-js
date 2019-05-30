@@ -14,7 +14,7 @@ export default class TimetableList {
       return this.getUnorderedList();
     }
 
-    throw new Error('List type not suported');
+    return this.getExpandableList();
   }
 
   public getListType(): string {
@@ -50,6 +50,14 @@ export default class TimetableList {
     });
 
     return values;
+  }
+
+  private getExpandableList(): Record<string, Record<string, string>[]> {
+    return this.getTimetableUrlSubType(
+      '#oddzialy a',
+      '#nauczyciele a',
+      '#sale a',
+    );
   }
 
   private getUnorderedList(): Record<string, Record<string, string>[]> {
