@@ -138,5 +138,16 @@ describe('Table test', (): void => {
     it('Cheerio init', (): void => {
       expect((): Table => new Table(classTableHTML)).not.to.throw();
     });
+
+    it('Day names return value check', (): void => {
+      const dayNames = table.getDayNames();
+      expect(dayNames).to.eql([
+        'Poniedziałek',
+        'Wtorek',
+        'Środa',
+        'Czwartek',
+        'Piątek',
+      ]);
+    });
   });
 });
