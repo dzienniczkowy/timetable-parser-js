@@ -1,3 +1,4 @@
+import Table from './Table';
 import TimetableList from './TimetableList';
 
-export { TimetableList };
+export { TimetableList, Table };

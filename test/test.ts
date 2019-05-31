@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import * as fs from 'fs';
 import * as path from 'path';
-import { TimetableList } from '../lib/index';
+import { TimetableList, Table } from '../lib/index';
 
 describe('List test', (): void => {
   describe('Expandable list', (): void => {
@@ -100,6 +100,43 @@ describe('List test', (): void => {
       expect(nodesList.rooms[0].value).to.equal('1');
       expect(nodesList.rooms[1].name).to.equal('17 prac. fizyczna');
       expect(nodesList.rooms[1].value).to.equal('2');
+    });
+  });
+});
+
+describe('Table test', (): void => {
+  describe('Room table', (): void => {
+    const roomTableFilename = path.join(__dirname, 'fixtures', 'sala.html');
+    const roomTableHTML = fs.readFileSync(roomTableFilename, {
+      encoding: 'utf8',
+    });
+
+    const table = new Table(roomTableHTML);
+    it('Cheerio init', (): void => {
+      expect((): Table => new Table(roomTableHTML)).not.to.throw();
+    });
+
+    it('Day names return value check', (): void => {
+      const dayNames = table.getDayNames();
+      expect(dayNames).to.eql([
+        'Poniedziałek',
+        'Wtorek',
+        'Środa',
+        'Czwartek',
+        'Piątek',
+      ]);
+    });
+  });
+
+  describe('Class table', (): void => {
+    const classTableFilename = path.join(__dirname, 'fixtures', 'oddzial.html');
+    const classTableHTML = fs.readFileSync(classTableFilename, {
+      encoding: 'utf8',
+    });
+
+    const table = new Table(classTableHTML);
+    it('Cheerio init', (): void => {
+      expect((): Table => new Table(classTableHTML)).not.to.throw();
     });
   });
 });
