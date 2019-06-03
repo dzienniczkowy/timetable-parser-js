@@ -1,4 +1,5 @@
 import Table from './Table';
+import TableHour from './TableHour';
 import TimetableList from './TimetableList';
 
-export { TimetableList, Table };
+export { Table, TableHour, TimetableList };

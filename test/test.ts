@@ -126,6 +126,68 @@ describe('Table test', (): void => {
         'Piątek',
       ]);
     });
+
+    it('Table hours return check', (): void => {
+      const tableHours = table.getHours();
+      console.log(tableHours);
+      expect(tableHours).to.eql({
+        1: {
+          number: 1,
+          timeFrom: '8:00',
+          timeTo: '8:45',
+        },
+        2: {
+          number: 2,
+          timeFrom: '8:50',
+          timeTo: '9:35',
+        },
+        3: {
+          number: 3,
+          timeFrom: '9:40',
+          timeTo: '10:25',
+        },
+        4: {
+          number: 4,
+          timeFrom: '10:40',
+          timeTo: '11:25',
+        },
+        5: {
+          number: 5,
+          timeFrom: '11:30',
+          timeTo: '12:15',
+        },
+        6: {
+          number: 6,
+          timeFrom: '12:20',
+          timeTo: '13:05',
+        },
+        7: {
+          number: 7,
+          timeFrom: '13:10',
+          timeTo: '13:55',
+        },
+        8: {
+          number: 8,
+          timeFrom: '14:00',
+          timeTo: '14:45',
+        },
+        9: {
+          number: 9,
+          timeFrom: '14:50',
+          timeTo: '15:35',
+        },
+        10: {
+          number: 10,
+          timeFrom: '15:40',
+          timeTo: '16:25',
+        },
+        11: {
+          number: 11,
+          timeFrom: '16:35',
+          timeTo: '17:20',
+        },
+      });
+    });
   });
 
   describe('Class table', (): void => {
@@ -148,6 +210,63 @@ describe('Table test', (): void => {
         'Czwartek',
         'Piątek',
       ]);
+    });
+
+    it('Table hours return check', (): void => {
+      const tableHours = table.getHours();
+      console.log(tableHours);
+      expect(tableHours).to.eql({
+        2: {
+          number: 2,
+          timeFrom: '8:00',
+          timeTo: '8:45',
+        },
+        3: {
+          number: 3,
+          timeFrom: '8:50',
+          timeTo: '9:35',
+        },
+        4: {
+          number: 4,
+          timeFrom: '9:40',
+          timeTo: '10:25',
+        },
+        5: {
+          number: 5,
+          timeFrom: '10:40',
+          timeTo: '11:25',
+        },
+        6: {
+          number: 6,
+          timeFrom: '11:30',
+          timeTo: '12:15',
+        },
+        7: {
+          number: 7,
+          timeFrom: '12:20',
+          timeTo: '13:05',
+        },
+        8: {
+          number: 8,
+          timeFrom: '13:10',
+          timeTo: '13:55',
+        },
+        9: {
+          number: 9,
+          timeFrom: '14:00',
+          timeTo: '14:45',
+        },
+        10: {
+          number: 10,
+          timeFrom: '14:50',
+          timeTo: '15:35',
+        },
+        11: {
+          number: 11,
+          timeFrom: '15:40',
+          timeTo: '16:25',
+        },
+      });
     });
   });
 });

@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio';
+import TableHour from './TableHour';
 
 export default class Table {
   public $: CheerioStatic;
@@ -11,6 +12,20 @@ export default class Table {
     return this.$('.tabela tr:first-of-type th').toArray()
       .map((element: CheerioElement): string => this.$(element).text())
       .slice(2);
+  }
+
+  public getHours(): Record<number, TableHour> {
+    const rows = this.$('.tabela tr:not(:first-of-type)').toArray();
+    const hours: Record<number, TableHour> = {};
+    rows.forEach((row: CheerioElement): void => {
+      const number = parseInt(this.$(row).find('.nr').text().trim(), 10);
+      const timesText = this.$(row).find('.g').text();
+      let [timeFrom, timeTo] = timesText.split('-');
+      timeFrom = timeFrom.trim();
+      timeTo = timeTo.trim();
+      hours[number] = new TableHour(number, timeFrom, timeTo);
+    });
+    return hours;
   }
 
   // public getTable(): Object {
