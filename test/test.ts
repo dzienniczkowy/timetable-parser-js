@@ -111,6 +111,12 @@ describe('Table test', (): void => {
       encoding: 'utf8',
     });
 
+    const roomDaysValuesFilename = path.join(__dirname, 'expected', 'room-days.json');
+    const roomDaysValuesJSON = fs.readFileSync(roomDaysValuesFilename, {
+      encoding: 'utf8',
+    });
+    const roomDaysValues = JSON.parse(roomDaysValuesJSON);
+
     const table = new Table(roomTableHTML);
     it('Cheerio init', (): void => {
       expect((): Table => new Table(roomTableHTML)).not.to.throw();
@@ -188,6 +194,12 @@ describe('Table test', (): void => {
         },
       });
     });
+
+    it('Table days return check', (): void => {
+      const tableDays = table.getDays();
+      console.log(JSON.stringify(tableDays));
+      expect(tableDays).to.eql(roomDaysValues);
+    });
   });
 
   describe('Class table', (): void => {
@@ -195,6 +207,12 @@ describe('Table test', (): void => {
     const classTableHTML = fs.readFileSync(classTableFilename, {
       encoding: 'utf8',
     });
+
+    const classDaysValuesFilename = path.join(__dirname, 'expected', 'class-days.json');
+    const classDaysValuesJSON = fs.readFileSync(classDaysValuesFilename, {
+      encoding: 'utf8',
+    });
+    const classDaysValues = JSON.parse(classDaysValuesJSON);
 
     const table = new Table(classTableHTML);
     it('Cheerio init', (): void => {
@@ -267,6 +285,11 @@ describe('Table test', (): void => {
           timeTo: '16:25',
         },
       });
+    });
+
+    it('Table days return check', (): void => {
+      const tableDays = table.getDays();
+      expect(tableDays).to.eql(classDaysValues);
     });
   });
 });

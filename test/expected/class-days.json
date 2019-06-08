@@ -1,0 +1,347 @@
+[
+  [
+    [
+      {
+        "groupName": "2/2",
+        "subject": "sieci.komput",
+        "teacher": "Dr",
+        "room": "35"
+      }
+    ],
+    [
+      {
+        "groupName": "2/2",
+        "subject": "sieci.komput",
+        "teacher": "Dr",
+        "room": "35"
+      }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "tw.apl.inter",
+        "teacher": "Ko",
+        "room": "33"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "sieci.komput",
+        "teacher": "Dr",
+        "room": "35"
+      }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "tw.apl.inter",
+        "teacher": "Ko",
+        "room": "33"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "sieci.komput",
+        "teacher": "Dr",
+        "room": "35"
+      }
+    ],
+    [{ "subject": "j.polski", "teacher": "ZJ", "room": "21" }],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "r_fizyka",
+        "teacher": "Ba",
+        "room": "19"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "met.programo",
+        "teacher": "PB",
+        "room": "32"
+      }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "r_fizyka",
+        "teacher": "Ba",
+        "room": "19"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "s.operacyjne",
+        "teacher": "Oż",
+        "room": "32"
+      }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "s.operacyjne",
+        "teacher": "Oż",
+        "room": "32"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "tw.baz.dan",
+        "teacher": "Dę",
+        "room": "34"
+      }
+    ],
+    [],
+    []
+  ],
+  [
+    [],
+    [],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "angielski g",
+        "teacher": "BM",
+        "room": "W11"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "angielski g",
+        "teacher": "Pi",
+        "room": "W3"
+      }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "angielski g",
+        "teacher": "BM",
+        "room": "W11"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "angielski g",
+        "teacher": "Pi",
+        "room": "W3"
+      }
+    ],
+    [{ "subject": "u_hist.i sp.", "teacher": "Ho", "room": "21" }],
+    [{ "subject": "matematyka", "teacher": "PB", "room": "23" }],
+    [{ "subject": "godz.wych", "teacher": "PB", "room": "32" }],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "sieci.komput",
+        "teacher": "Dr",
+        "room": "35"
+      },
+      { "subject": "r_fizyka #3fi", "groupName": "2/2", "room": "19" }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "sieci.komput",
+        "teacher": "Dr",
+        "room": "35"
+      },
+      { "subject": "r_fizyka #3fi", "groupName": "2/2", "room": "19" }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "r_fizyka",
+        "teacher": "Ba",
+        "room": "19"
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "groupName": "1/2",
+        "subject": "sieci.komput",
+        "teacher": "Dr",
+        "room": "35"
+      }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "met.programo",
+        "teacher": "PB",
+        "room": "34"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "sieci.komput",
+        "teacher": "Dr",
+        "room": "35"
+      }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "met.programo",
+        "teacher": "PB",
+        "room": "34"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "sieci.komput",
+        "teacher": "Dr",
+        "room": "35"
+      }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "angielski g",
+        "teacher": "BM",
+        "room": "W11"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "angielski g",
+        "teacher": "Pi",
+        "room": "W3"
+      }
+    ],
+    [{ "subject": "matematyka", "teacher": "PB", "room": "34" }],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "s.operacyjne",
+        "teacher": "Oż",
+        "room": "32"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "tw.apl.inter",
+        "teacher": "Ko",
+        "room": "33"
+      }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "s.operacyjne",
+        "teacher": "Oż",
+        "room": "32"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "tw.apl.inter",
+        "teacher": "Ko",
+        "room": "33"
+      }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "sieci.komput",
+        "teacher": "Dr",
+        "room": "35"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "tw.baz.dan",
+        "teacher": "Dę",
+        "room": "34"
+      }
+    ],
+    [],
+    []
+  ],
+  [
+    [],
+    [{ "subject": "religia", "teacher": "KG", "room": "3" }],
+    [{ "subject": "j.polski", "teacher": "ZJ", "room": "16" }],
+    [{ "subject": "j.polski", "teacher": "ZJ", "room": "16" }],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "sieci.komput",
+        "teacher": "Dr",
+        "room": "35"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "s.operacyjne",
+        "teacher": "Oż",
+        "room": "32"
+      }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "sieci.komput",
+        "teacher": "Dr",
+        "room": "35"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "s.operacyjne",
+        "teacher": "Oż",
+        "room": "32"
+      }
+    ],
+    [
+      { "groupName": "1/2", "subject": "wf", "teacher": "CK", "room": "WG4" },
+      { "groupName": "2/2", "subject": "wf", "teacher": "Bu", "room": "WG3" }
+    ],
+    [
+      { "groupName": "1/2", "subject": "wf", "teacher": "CK", "room": "WG4" },
+      { "groupName": "2/2", "subject": "wf", "teacher": "Bu", "room": "WG3" }
+    ],
+    [],
+    [
+      { "subject": "r_geografia #2ge", "groupName": "2/3", "room": "16" },
+      { "subject": "r_informat. #2in", "groupName": "3/3", "room": "33" }
+    ]
+  ],
+  [
+    [],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "tw.baz.dan",
+        "teacher": "Dę",
+        "room": "34"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "s.operacyjne",
+        "teacher": "Oż",
+        "room": "32"
+      }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "tw.baz.dan",
+        "teacher": "Dę",
+        "room": "34"
+      },
+      {
+        "groupName": "2/2",
+        "subject": "met.programo",
+        "teacher": "PB",
+        "room": "33"
+      }
+    ],
+    [{ "subject": "r_matematyka", "teacher": "PB", "room": "W15" }],
+    [{ "subject": "matematyka", "teacher": "PB", "room": "34" }],
+    [{ "subject": "religia", "teacher": "KG", "room": "16" }],
+    [
+      { "groupName": "1/2", "subject": "wf", "teacher": "CK", "room": "WG4" },
+      { "groupName": "2/2", "subject": "wf", "teacher": "Bu", "room": "WG3" }
+    ],
+    [
+      {
+        "groupName": "1/2",
+        "subject": "s.operacyjne",
+        "teacher": "Oż",
+        "room": "32"
+      },
+      { "subject": "r_fizyka #3fi", "groupName": "2/2", "room": "19" }
+    ],
+    [],
+    []
+  ]
+]

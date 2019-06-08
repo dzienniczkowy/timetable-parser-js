@@ -1,0 +1,114 @@
+[
+  [
+    [{ "teacher": "Kr", "className": "4Tm", "subject": "u_hist.i sp." }],
+    [{ "teacher": "Kr", "className": "4Tp", "subject": "u_hist.i sp." }],
+    [{ "teacher": "Ho", "className": "4Ti", "subject": "u_hist.i sp." }],
+    [{ "teacher": "Kr", "className": "2Tc", "subject": "historia" }],
+    [{ "teacher": "ZJ", "className": "3Ti", "subject": "j.polski" }],
+    [{ "teacher": "ZJ", "className": "2Ti", "subject": "j.polski" }],
+    [{ "teacher": "ZJ", "className": "1Ti", "subject": "j.polski" }],
+    [{ "teacher": "RM", "className": "1Ti", "subject": "biologia" }],
+    [{ "teacher": "RM", "className": "1Zp", "subject": "biologia" }],
+    [],
+    []
+  ],
+  [
+    [
+      {
+        "teacher": "Kr",
+        "className": "4Tp",
+        "groupName": "2/3",
+        "subject": "r_geografia"
+      }
+    ],
+    [
+      {
+        "teacher": "Kr",
+        "className": "4Tp",
+        "groupName": "2/3",
+        "subject": "r_geografia"
+      }
+    ],
+    [{ "teacher": "JP", "className": "1Tp", "subject": "chemia" }],
+    [{ "teacher": "Ho", "className": "3Tc", "subject": "u_hist.i sp." }],
+    [{ "teacher": "Ho", "className": "3Ti", "subject": "u_hist.i sp." }],
+    [{ "teacher": "Ho", "className": "2Tn", "subject": "historia" }],
+    [{ "teacher": "BR", "className": "1Zp", "subject": "religia" }],
+    [],
+    [],
+    [],
+    []
+  ],
+  [
+    [
+      {
+        "teacher": "Kr",
+        "className": "4Tp",
+        "groupName": "2/3",
+        "subject": "r_geografia"
+      }
+    ],
+    [
+      {
+        "teacher": "Kr",
+        "className": "4Tp",
+        "groupName": "2/3",
+        "subject": "r_geografia"
+      }
+    ],
+    [{ "teacher": "JW", "className": "1Tc", "subject": "r_matematyka" }],
+    [{ "teacher": "Ho", "className": "1Tc", "subject": "wos" }],
+    [{ "teacher": "Ho", "className": "4Ti", "subject": "u_hist.i sp." }],
+    [{ "teacher": "Ho", "className": "4Ti", "subject": "u_hist.i sp." }],
+    [{ "teacher": "AP", "className": "2Ti", "subject": "godz.wych" }],
+    [{ "teacher": "Ho", "className": "2Tp", "subject": "historia" }],
+    [{ "teacher": "Ho", "className": "3Za", "subject": "wos" }],
+    [],
+    [{ "teacher": "Ho", "className": "3Ze", "subject": "wos" }]
+  ],
+  [
+    [
+      {
+        "teacher": "Dę",
+        "className": "3Tk",
+        "groupName": "3/3",
+        "subject": "r_informat."
+      },
+      {
+        "teacher": "Dę",
+        "className": "3Tp",
+        "groupName": "3/3",
+        "subject": "r_informat."
+      },
+      {
+        "teacher": "Dę",
+        "className": "3Te",
+        "groupName": "3/3",
+        "subject": "r_informat."
+      }
+    ],
+    [{ "teacher": "Ho", "className": "1Tt", "subject": "wos" }],
+    [{ "teacher": "Ho", "className": "4Ti", "subject": "u_hist.i sp." }],
+    [{ "teacher": "Ho", "className": "2Ti", "subject": "historia" }],
+    [{ "teacher": "Ho", "className": "3Tk", "subject": "u_hist.i sp." }],
+    [{ "teacher": "PB", "className": "3Te", "subject": "matematyka" }],
+    [{ "teacher": "Kr", "className": "1Tm", "subject": "wos" }],
+    [{ "teacher": "Kr", "className": "2Tm", "subject": "historia" }],
+    [{ "teacher": "Kr", "className": "1Zm", "subject": "historia" }],
+    [],
+    []
+  ],
+  [
+    [{ "teacher": "Ho", "className": "3Tp", "subject": "u_hist.i sp." }],
+    [{ "teacher": "ZJ", "className": "1Ti", "subject": "j.polski" }],
+    [{ "teacher": "ZJ", "className": "1Ti", "subject": "j.polski" }],
+    [{ "teacher": "Ho", "className": "1Tc", "subject": "historia" }],
+    [{ "teacher": "Ho", "className": "1Tc", "subject": "godz.wych" }],
+    [{ "teacher": "Ho", "className": "1Tt", "subject": "historia" }],
+    [{ "teacher": "Kr", "className": "1Ti", "subject": "historia" }],
+    [{ "teacher": "Ho", "className": "1Zp", "subject": "historia" }],
+    [{ "teacher": "Ho", "className": "3Zb", "subject": "wos" }],
+    [],
+    []
+  ]
+]
