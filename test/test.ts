@@ -135,7 +135,6 @@ describe('Table test', (): void => {
 
     it('Table hours return check', (): void => {
       const tableHours = table.getHours();
-      console.log(tableHours);
       expect(tableHours).to.eql({
         1: {
           number: 1,
@@ -197,7 +196,6 @@ describe('Table test', (): void => {
 
     it('Table days return check', (): void => {
       const tableDays = table.getDays();
-      console.log(JSON.stringify(tableDays));
       expect(tableDays).to.eql(roomDaysValues);
     });
   });
@@ -232,7 +230,6 @@ describe('Table test', (): void => {
 
     it('Table hours return check', (): void => {
       const tableHours = table.getHours();
-      console.log(tableHours);
       expect(tableHours).to.eql({
         2: {
           number: 2,
