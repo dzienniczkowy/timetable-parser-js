@@ -1,6 +1,6 @@
 {
   "name": "timetable-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "VULCAN Optivum Timetable parser for JavaScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,6 +11,10 @@
     "test": "mocha --reporter spec --require ts-node/register test/**/*.ts"
   },
   "author": "Dominik Korsa <dominik.korsa@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dominik-korsa/timetable-parser-js.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/mocha": "^5.2.6",
