@@ -2,7 +2,8 @@
   "name": "timetable-parser",
   "version": "1.0.0",
   "description": "VULCAN Optivum Timetable parser for JavaScript",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "lint": "./node_modules/.bin/eslint ./lib/ ./test/ --ext .js,.ts",
