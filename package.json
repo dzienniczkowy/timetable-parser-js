@@ -1,6 +1,6 @@
 {
   "name": "timetable-parser",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "VULCAN Optivum Timetable parser for JavaScript",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
