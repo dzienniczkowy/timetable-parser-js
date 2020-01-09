@@ -21,8 +21,8 @@ const table = new Table(/*Content of oXX.html file*/);
 // This returns array of 5 arrays (for 5 days)
 const lessons = table.getDays();
 
-// This will log name of the first lesson on monday
-console.log(lessons[0][0].subject);
+// This will log name of the second lesson on monday
+console.log(lessons[0][1].subject);
 ```
 
 ### Attributes of "lesson"
