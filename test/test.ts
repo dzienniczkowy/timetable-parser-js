@@ -198,6 +198,11 @@ describe('Table test', (): void => {
       const tableDays = table.getDays();
       expect(tableDays).to.eql(roomDaysValues);
     });
+
+    it('Table title', (): void => {
+      const title = table.getTitle();
+      expect(title).to.eql('21 prac. historii');
+    });
   });
 
   describe('Class table', (): void => {
@@ -287,6 +292,11 @@ describe('Table test', (): void => {
     it('Table days return check', (): void => {
       const tableDays = table.getDays();
       expect(tableDays).to.eql(classDaysValues);
+    });
+
+    it('Table title', (): void => {
+      const title = table.getTitle();
+      expect(title).to.eql('3Ti');
     });
   });
 });
