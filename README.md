@@ -23,6 +23,10 @@ const lessons = table.getDays();
 
 // This will log name of the second lesson on monday
 console.log(lessons[0][1].subject);
+
+// Get timetable title from the header
+const title = table.getTitle();
+console.log(title)
 ```
 
 ### Attributes of "lesson"
