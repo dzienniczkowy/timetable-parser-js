@@ -233,6 +233,11 @@ describe('Table test', (): void => {
       ]);
     });
 
+    it('getRawDays does not throw an error', (): void => {
+      table.getRawDays();
+    });
+
+
     it('Table hours return check', (): void => {
       const tableHours = table.getHours();
       expect(tableHours).to.eql({
