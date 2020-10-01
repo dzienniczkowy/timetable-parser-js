@@ -234,9 +234,8 @@ describe('Table test', (): void => {
     });
 
     it('getRawDays does not throw an error', (): void => {
-      const rawTable = table.getRawDays();
-      console.log(rawTable);
-    })
+      table.getRawDays();
+    });
 
 
     it('Table hours return check', (): void => {
