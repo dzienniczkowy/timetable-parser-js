@@ -47,7 +47,7 @@ export default class Table {
     rows.forEach((row, index): void => {
       const lessons = this.$(row).find('.l').toArray();
       lessons.forEach((lesson): void => {
-        days[index] || days.push([]);
+        if (!days[index]) days.push([]);
         if (this.$(lesson).children().length === 0) {
           days[index].push([]);
         } else {
@@ -87,7 +87,7 @@ export default class Table {
     return days;
   }
 
-  private parseLessons(data: any[]): Record<string, string>[] {
+  private parseLessons(data: CheerioElement[]): Record<string, string>[] {
     let groups: Record<string, string>[] = [{}];
     let groupNumber = 0;
     let commaSeperated = false;
