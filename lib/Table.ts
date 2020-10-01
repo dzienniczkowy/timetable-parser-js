@@ -8,8 +8,16 @@ export default class Table {
     this.$ = cheerio.load(html);
   }
 
+  /*
+   * Parses the text from the header, for instance class name
+   */
+  public getTitle(): string {
+    return this.$('.tytulnapis').text();
+  }
+
   public getDayNames(): string[] {
-    return this.$('.tabela tr:first-of-type th').toArray()
+    return this.$('.tabela tr:first-of-type th')
+      .toArray()
       .map((element: CheerioElement): string => this.$(element).text())
       .slice(2);
   }
