@@ -1,9 +1,29 @@
 import { expect } from 'chai';
 import * as fs from 'fs';
 import * as path from 'path';
-import { TimetableList, Table } from '../lib/index';
+import { Timetable, TimetableList, Table } from '../lib/index';
 
-describe('List test', (): void => {
+describe('Timetable test', (): void => {
+  const indexFilename = path.join(__dirname, 'fixtures', 'index.html');
+  const indexHTML = fs.readFileSync(indexFilename, {
+    encoding: 'utf8',
+  });
+  it('Cheerio init', (): void => {
+    expect((): Timetable => new Timetable(indexHTML)).not.to.throw();
+  });
+
+  const timetable = new Timetable(indexHTML);
+
+  it('Title check', (): void => {
+    expect(timetable.getTitle()).to.equal('Publiczna szkoła Wulkanowego nr 1. Plan lekcji');
+  });
+
+  it('Path text', (): void => {
+    expect(timetable.getListPath()).to.equal('lista.html');
+  });
+});
+
+describe('Timetable list test', (): void => {
   describe('Expandable list', (): void => {
     const expandableListFilename = path.join(__dirname, 'fixtures', 'lista-expandable.html');
     const expandableListHTML = fs.readFileSync(expandableListFilename, {
