@@ -1,7 +1,9 @@
 import { expect } from 'chai';
 import * as fs from 'fs';
 import * as path from 'path';
-import { Timetable, TimetableList, Table } from '../lib/index';
+import {
+  Timetable, TimetableList, Table,
+} from '../lib/index';
 
 describe('Timetable test', (): void => {
   const indexFilename = path.join(__dirname, 'fixtures', 'index.html');
@@ -42,18 +44,24 @@ describe('Timetable list test', (): void => {
 
     it('Return value check', (): void => {
       const nodesList = list.getList();
+      expect(nodesList.classes).not.to.equal(undefined);
+      expect(nodesList.teachers).not.to.equal(undefined);
+      expect(nodesList.rooms).not.to.equal(undefined);
+
       expect(nodesList.classes[0].name).to.equal('1Tc');
       expect(nodesList.classes[0].value).to.equal('1');
       expect(nodesList.classes[1].name).to.equal('1Ti');
       expect(nodesList.classes[1].value).to.equal('2');
-      expect(nodesList.teachers[0].name).to.equal('I.Ochocki (Io)');
-      expect(nodesList.teachers[0].value).to.equal('1');
-      expect(nodesList.teachers[1].name).to.equal('M.Oleszkiewicz (Mo)');
-      expect(nodesList.teachers[1].value).to.equal('3');
-      expect(nodesList.rooms[0].name).to.equal('16 prac. geograficzna');
-      expect(nodesList.rooms[0].value).to.equal('1');
-      expect(nodesList.rooms[1].name).to.equal('17 prac. fizyczna');
-      expect(nodesList.rooms[1].value).to.equal('2');
+
+      expect(nodesList.teachers![0].name).to.equal('I.Ochocki (Io)');
+      expect(nodesList.teachers![0].value).to.equal('1');
+      expect(nodesList.teachers![1].name).to.equal('M.Oleszkiewicz (Mo)');
+      expect(nodesList.teachers![1].value).to.equal('3');
+
+      expect(nodesList.rooms![0].name).to.equal('16 prac. geograficzna');
+      expect(nodesList.rooms![0].value).to.equal('1');
+      expect(nodesList.rooms![1].name).to.equal('17 prac. fizyczna');
+      expect(nodesList.rooms![1].value).to.equal('2');
     });
   });
 
@@ -75,18 +83,24 @@ describe('Timetable list test', (): void => {
 
     it('Return value check', (): void => {
       const nodesList = list.getList();
+      expect(nodesList.classes).not.to.equal(undefined);
+      expect(nodesList.teachers).not.to.equal(undefined);
+      expect(nodesList.rooms).not.to.equal(undefined);
+
       expect(nodesList.classes[0].name).to.equal('1Tc');
       expect(nodesList.classes[0].value).to.equal('1');
       expect(nodesList.classes[1].name).to.equal('1Ti');
       expect(nodesList.classes[1].value).to.equal('2');
-      expect(nodesList.teachers[0].name).to.equal('I.Ochocki (Io)');
-      expect(nodesList.teachers[0].value).to.equal('1');
-      expect(nodesList.teachers[1].name).to.equal('M.Oleszkiewicz (Mo)');
-      expect(nodesList.teachers[1].value).to.equal('3');
-      expect(nodesList.rooms[0].name).to.equal('16 prac. geograficzna');
-      expect(nodesList.rooms[0].value).to.equal('1');
-      expect(nodesList.rooms[1].name).to.equal('17 prac. fizyczna');
-      expect(nodesList.rooms[1].value).to.equal('2');
+
+      expect(nodesList.teachers![0].name).to.equal('I.Ochocki (Io)');
+      expect(nodesList.teachers![0].value).to.equal('1');
+      expect(nodesList.teachers![1].name).to.equal('M.Oleszkiewicz (Mo)');
+      expect(nodesList.teachers![1].value).to.equal('3');
+
+      expect(nodesList.rooms![0].name).to.equal('16 prac. geograficzna');
+      expect(nodesList.rooms![0].value).to.equal('1');
+      expect(nodesList.rooms![1].name).to.equal('17 prac. fizyczna');
+      expect(nodesList.rooms![1].value).to.equal('2');
     });
   });
 
@@ -108,18 +122,24 @@ describe('Timetable list test', (): void => {
 
     it('Return value check', (): void => {
       const nodesList = list.getList();
+      expect(nodesList.classes).not.to.equal(undefined);
+      expect(nodesList.teachers).not.to.equal(undefined);
+      expect(nodesList.rooms).not.to.equal(undefined);
+
       expect(nodesList.classes[0].name).to.equal('1Tc');
       expect(nodesList.classes[0].value).to.equal('1');
       expect(nodesList.classes[1].name).to.equal('1Ti');
       expect(nodesList.classes[1].value).to.equal('2');
-      expect(nodesList.teachers[0].name).to.equal('I.Ochocki (Io)');
-      expect(nodesList.teachers[0].value).to.equal('1');
-      expect(nodesList.teachers[1].name).to.equal('M.Oleszkiewicz (Mo)');
-      expect(nodesList.teachers[1].value).to.equal('3');
-      expect(nodesList.rooms[0].name).to.equal('16 prac. geograficzna');
-      expect(nodesList.rooms[0].value).to.equal('1');
-      expect(nodesList.rooms[1].name).to.equal('17 prac. fizyczna');
-      expect(nodesList.rooms[1].value).to.equal('2');
+
+      expect(nodesList.teachers![0].name).to.equal('I.Ochocki (Io)');
+      expect(nodesList.teachers![0].value).to.equal('1');
+      expect(nodesList.teachers![1].name).to.equal('M.Oleszkiewicz (Mo)');
+      expect(nodesList.teachers![1].value).to.equal('3');
+
+      expect(nodesList.rooms![0].name).to.equal('16 prac. geograficzna');
+      expect(nodesList.rooms![0].value).to.equal('1');
+      expect(nodesList.rooms![1].name).to.equal('17 prac. fizyczna');
+      expect(nodesList.rooms![1].value).to.equal('2');
     });
   });
 });

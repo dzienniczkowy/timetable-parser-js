@@ -22,6 +22,16 @@
     "indent": ["error", 2],
     "@typescript-eslint/indent": ["error", 2]
   },
+  "overrides": [
+    {
+      "files": [
+        "test/**"
+      ],
+      "rules": {
+        "@typescript-eslint/no-non-null-assertion": ["off"]
+      }
+    }
+  ],
   "env": {
     "mocha": true
   }

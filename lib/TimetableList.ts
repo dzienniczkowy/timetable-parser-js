@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio';
+import { List, ListItem } from './types';
 
 export default class TimetableList {
   public $: CheerioStatic;
@@ -7,7 +8,7 @@ export default class TimetableList {
     this.$ = cheerio.load(html);
   }
 
-  public getList(): Record<string, Record<string, string>[]> {
+  public getList(): List {
     if (this.getListType() === 'select') {
       return this.getSelectList();
     } if (this.getListType() === 'unordered') {
@@ -29,7 +30,7 @@ export default class TimetableList {
     return 'unordered';
   }
 
-  private getSelectList(): Record<string, Record<string, string>[]> {
+  private getSelectList(): List {
     return {
       classes: this.getSelectListValues('oddzialy'),
       teachers: this.getSelectListValues('nauczyciele'),
@@ -37,11 +38,11 @@ export default class TimetableList {
     };
   }
 
-  private getSelectListValues(name: string): Record<string, string>[] {
+  private getSelectListValues(name: string): ListItem[] {
     const nodes = this.$(`[name=${name}] option`).toArray();
     nodes.shift();
 
-    const values: Record<string, string>[] = [];
+    const values: ListItem[] = [];
     nodes.forEach((node): void => {
       values.push({
         name: this.$(node).text(),
@@ -52,7 +53,7 @@ export default class TimetableList {
     return values;
   }
 
-  private getExpandableList(): Record<string, Record<string, string>[]> {
+  private getExpandableList(): List {
     return this.getTimetableUrlSubType(
       '#oddzialy a',
       '#nauczyciele a',
@@ -60,7 +61,7 @@ export default class TimetableList {
     );
   }
 
-  private getUnorderedList(): Record<string, Record<string, string>[]> {
+  private getUnorderedList(): List {
     let teachersQuery = 'ul:nth-of-type(2) a';
     let roomsQuery = 'ul:nth-of-type(3) a';
     if (this.$('h4').length === 1) {
@@ -77,8 +78,11 @@ export default class TimetableList {
     );
   }
 
-  private getTimetableUrlSubType(classQuery: string, teachersQuery: string, roomsQuery: string):
-  Record<string, Record<string, string>[]> {
+  private getTimetableUrlSubType(
+    classQuery: string,
+    teachersQuery: string,
+    roomsQuery: string,
+  ): List {
     return {
       classes: this.getSubTypeValue(classQuery, 'o'),
       teachers: this.getSubTypeValue(teachersQuery, 'n'),
@@ -86,8 +90,8 @@ export default class TimetableList {
     };
   }
 
-  private getSubTypeValue(query: string, prefix: string): Record<string, string>[] {
-    const values: Record<string, string>[] = [];
+  private getSubTypeValue(query: string, prefix: string): ListItem[] {
+    const values: ListItem[] = [];
 
     const nodes = this.$(query).toArray();
     nodes.forEach((node: CheerioElement): void => {

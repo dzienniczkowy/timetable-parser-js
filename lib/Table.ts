@@ -1,5 +1,5 @@
 import * as cheerio from 'cheerio';
-import TableHour from './TableHour';
+import { TableHour, TableLesson } from './types';
 
 export default class Table {
   public $: CheerioStatic;
@@ -28,10 +28,14 @@ export default class Table {
     rows.forEach((row: CheerioElement): void => {
       const number = parseInt(this.$(row).find('.nr').text().trim(), 10);
       const timesText = this.$(row).find('.g').text();
-      let [timeFrom, timeTo] = timesText.split('-');
-      timeFrom = timeFrom.trim();
-      timeTo = timeTo.trim();
-      hours[number] = new TableHour(number, timeFrom, timeTo);
+      const [timeFrom, timeTo] = timesText
+        .split('-')
+        .map((e): string => e.trim());
+      hours[number] = {
+        number,
+        timeFrom,
+        timeTo,
+      };
     });
     return hours;
   }
@@ -39,10 +43,10 @@ export default class Table {
   /*
   * Return table in original form (without transposing) for easier displaying.
   */
-  public getRawDays(): Record<string, string>[][][] {
+  public getRawDays(): TableLesson[][][] {
     const rows = this.$('.tabela tr:not(:first-of-type)').toArray();
 
-    const days: Record<string, string>[][][] = [];
+    const days: TableLesson[][][] = [];
 
     rows.forEach((row, index): void => {
       const lessons = this.$(row).find('.l').toArray();
@@ -61,10 +65,10 @@ export default class Table {
   }
 
 
-  public getDays(): Record<string, string>[][][] {
+  public getDays(): TableLesson[][][] {
     const rows = this.$('.tabela tr:not(:first-of-type)').toArray();
 
-    const days: Record<string, string>[][][] = [
+    const days: TableLesson[][][] = [
       [],
       [],
       [],
@@ -87,10 +91,10 @@ export default class Table {
     return days;
   }
 
-  private parseLessons(data: CheerioElement[]): Record<string, string>[] {
-    let groups: Record<string, string>[] = [{}];
+  private parseLessons(data: CheerioElement[]): TableLesson[] {
+    let groups: Partial<TableLesson>[] = [{}];
     let groupNumber = 0;
-    let commaSeperated = false;
+    let commaSeparated = false;
 
 
     data.forEach((element): void => {
@@ -98,7 +102,7 @@ export default class Table {
         groupNumber += 1;
         groups[groupNumber] = {};
       } else if (/,/.test(this.$(element).text())) {
-        const groupNameMatch = this.$(element).text().match(/-\d{1,}\/\d{1,}/);
+        const groupNameMatch = this.$(element).text().match(/-\d+\/\d+/);
 
         if (groupNameMatch) {
           groups[groupNumber].groupName = groupNameMatch[0].substr(1);
@@ -106,7 +110,7 @@ export default class Table {
 
         groupNumber += 1;
         groups[groupNumber] = {};
-        commaSeperated = true;
+        commaSeparated = true;
 
         if (groups[groupNumber - 1].teacher) {
           groups[groupNumber].teacher = groups[groupNumber - 1].teacher;
@@ -116,7 +120,7 @@ export default class Table {
           groups[groupNumber].subject = groups[groupNumber - 1].subject;
         }
       } else {
-        const groupNameMatch = this.$(element).text().match(/-\d{1,}\/\d{1,}/);
+        const groupNameMatch = this.$(element).text().match(/-\d+\/\d+/);
 
         if (groupNameMatch) {
           groups[groupNumber].groupName = groupNameMatch[0].substr(1);
@@ -124,19 +128,19 @@ export default class Table {
 
         if (this.$(element).hasClass('p')) {
           if (!groups[groupNumber].subject) {
-            groups[groupNumber].subject = this.$(element).text().replace(/-\d{1,}\/\d{1,}/, '');
+            groups[groupNumber].subject = this.$(element).text().replace(/-\d+\/\d+/, '');
           } else {
             groups[groupNumber].subject += ' ';
-            groups[groupNumber].subject += this.$(element).text().replace(/-\d{1,}\/\d{1,}/, '');
+            groups[groupNumber].subject += this.$(element).text().replace(/-\d+\/\d+/, '');
           }
         }
 
         if (this.$(element).find('.p').length !== 0) {
           if (!groups[groupNumber].subject) {
-            groups[groupNumber].subject = this.$(element).find('.p').text().replace(/-\d{1,}\/\d{1,}/, '');
+            groups[groupNumber].subject = this.$(element).find('.p').text().replace(/-\d+\/\d+/, '');
           } else {
             groups[groupNumber].subject += ' ';
-            groups[groupNumber].subject += this.$(element).find('.p').text().replace(/-\d{1,}\/\d{1,}/, '');
+            groups[groupNumber].subject += this.$(element).find('.p').text().replace(/-\d+\/\d+/, '');
           }
         }
 
@@ -164,7 +168,7 @@ export default class Table {
           groups[groupNumber].room = this.$(element).find('.s').text();
         }
 
-        if (commaSeperated) {
+        if (commaSeparated) {
           groups.slice(0, groups.length - 1).forEach((group, groupIndex): void => {
             if (!groups[groupIndex].teacher && groups[groupNumber].teacher) {
               groups[groupIndex].teacher = groups[groupNumber].teacher;
@@ -182,6 +186,6 @@ export default class Table {
       (group): boolean => (Object.getOwnPropertyNames(group).length !== 0),
     );
 
-    return groups;
+    return groups as TableLesson[];
   }
 }
