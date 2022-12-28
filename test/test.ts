@@ -255,6 +255,16 @@ describe('Table test', (): void => {
       const title = table.getTitle();
       expect(title).to.eql('21 prac. historii');
     });
+
+    it('Table version info', (): void => {
+      const versionInfo = table.getVersionInfo();
+      expect(versionInfo).to.eql('19 grudnia 2022 r. (wersja 5.0.0)');
+    });
+
+    it('Table generated date', (): void => {
+      const generatedDate = table.getGeneratedDate();
+      expect(generatedDate).to.eql('2018-02-17');
+    });
   });
 
   describe('Class table', (): void => {
@@ -354,6 +364,16 @@ describe('Table test', (): void => {
     it('Table title', (): void => {
       const title = table.getTitle();
       expect(title).to.eql('3Ti');
+    });
+
+    it('Table version info', (): void => {
+      const versionInfo = table.getVersionInfo();
+      expect(versionInfo).to.eql('19 lutego 2018r.');
+    });
+
+    it('Table generated date', (): void => {
+      const generatedDate = table.getGeneratedDate();
+      expect(generatedDate).to.eql('2018-02-17');
     });
   });
 });

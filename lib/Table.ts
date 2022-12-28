@@ -91,6 +91,38 @@ export default class Table {
     return days;
   }
 
+  /*
+    Date in ISO 8601 format
+   */
+  public getGeneratedDate(): string | null {
+    const regex = /wygenerowano (\d{1,4})[./-](\d{1,2})[./-](\d{1,4})/;
+    return this.$('td')
+      .toArray()
+      .map((e): string | null => {
+        const match = regex.exec(this.$(e).text());
+        if (match === null) return null;
+        const parts = [match[1], match[2], match[3]];
+        if (parts[0].length !== 4) parts.reverse();
+        return `${parts[0]}-${parts[1].padStart(2, '0')}-${parts[2].padStart(2, '0')}`;
+      })
+      .filter((e): boolean => e != null)[0] || null;
+  }
+
+  /*
+    Usually includes the dates when the table is valid.
+   */
+  public getVersionInfo(): string {
+    const regex = /^Obowiązuje od: (.+)$/;
+    return this.$('td')
+      .toArray()
+      .map((e): string | null => {
+        const match = regex.exec(this.$(e).text().trim());
+        if (match === null) return '';
+        return match[1].trim();
+      })
+      .filter((e): boolean => e !== '')[0] || '';
+  }
+
   private parseLessons(data: CheerioElement[]): TableLesson[] {
     let groups: Partial<TableLesson>[] = [{}];
     let groupNumber = 0;
