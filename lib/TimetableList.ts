@@ -30,6 +30,10 @@ export default class TimetableList {
     return 'unordered';
   }
 
+  public getLogoSrc(): string | null {
+    return this.$('.logo img').attr('src') || null;
+  }
+
   private getSelectList(): List {
     return {
       classes: this.getSelectListValues('oddzialy'),

@@ -63,6 +63,10 @@ describe('Timetable list test', (): void => {
       expect(nodesList.rooms![1].name).to.equal('17 prac. fizyczna');
       expect(nodesList.rooms![1].value).to.equal('2');
     });
+
+    it('Logo check', (): void => {
+      expect(list.getLogoSrc()).to.equal(null);
+    });
   });
 
   describe('Select list', (): void => {
@@ -102,6 +106,10 @@ describe('Timetable list test', (): void => {
       expect(nodesList.rooms![1].name).to.equal('17 prac. fizyczna');
       expect(nodesList.rooms![1].value).to.equal('2');
     });
+
+    it('Logo check', (): void => {
+      expect(list.getLogoSrc()).to.equal(null);
+    });
   });
 
   describe('Unordered list', (): void => {
@@ -140,6 +148,10 @@ describe('Timetable list test', (): void => {
       expect(nodesList.rooms![0].value).to.equal('1');
       expect(nodesList.rooms![1].name).to.equal('17 prac. fizyczna');
       expect(nodesList.rooms![1].value).to.equal('2');
+    });
+
+    it('Logo check', (): void => {
+      expect(list.getLogoSrc()).to.equal('images/logo.png');
     });
   });
 });
