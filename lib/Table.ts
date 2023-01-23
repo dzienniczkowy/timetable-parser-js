@@ -1,5 +1,5 @@
 import * as cheerio from 'cheerio';
-import { TableHour, TableLesson } from './types';
+import {TableHour, TableLesson} from './types';
 
 export default class Table {
   public $: CheerioStatic;
@@ -150,6 +150,10 @@ export default class Table {
             groups[groupNumber].teacher = groups[groupNumber - 1].teacher;
           }
 
+          if (groups[groupNumber - 1].teacherId) {
+            groups[groupNumber].teacherId = groups[groupNumber - 1].teacherId;
+          }
+
           if (groups[groupNumber - 1].subject) {
             groups[groupNumber].subject = groups[groupNumber - 1].subject;
           }
@@ -165,6 +169,11 @@ export default class Table {
             if (children.length > 0) callback(children);
           };
 
+          const getId = (el: Cheerio, letter: string): string | undefined => {
+            const href = el.attr('href');
+            return new RegExp(`^${letter}(.+)\\.html$`).exec(href)?.[1];
+          }
+
           withElement('p', (child): void => {
             if (!groups[groupNumber].subject) groups[groupNumber].subject = '';
             else groups[groupNumber].subject += ' ';
@@ -173,6 +182,7 @@ export default class Table {
 
           withElement('n', (child): void => {
             groups[groupNumber].teacher = child.text();
+            groups[groupNumber].teacherId = getId(child, 'n');
           });
 
           withElement('o', (child): void => {
@@ -187,6 +197,10 @@ export default class Table {
             groups.slice(0, groups.length - 1).forEach((group, groupIndex): void => {
               if (!groups[groupIndex].teacher && groups[groupNumber].teacher) {
                 groups[groupIndex].teacher = groups[groupNumber].teacher;
+              }
+
+              if (!groups[groupIndex].teacherId && groups[groupNumber].teacherId) {
+                groups[groupIndex].teacherId = groups[groupNumber].teacherId;
               }
 
               if (!groups[groupIndex].subject && groups[groupNumber].subject) {

@@ -9,6 +9,7 @@ export interface TableLesson {
   room?: string;
   groupName?: string;
   teacher?: string;
+  teacherId?: string;
   className?: string;
 }
 
