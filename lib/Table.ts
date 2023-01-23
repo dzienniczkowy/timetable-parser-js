@@ -124,98 +124,71 @@ export default class Table {
   }
 
   private parseLessons(data: CheerioElement[]): TableLesson[] {
-    let groups: Partial<TableLesson>[] = [{}];
-    let groupNumber = 0;
-    let commaSeparated = false;
-
+    const lines: Cheerio[][] = [[]];
 
     data.forEach((element): void => {
       if (element.tagName === 'br') {
-        groupNumber += 1;
-        groups[groupNumber] = {};
-      } else {
-        const el = this.$(element);
-        if (/,/.test(el.text())) {
-          const groupNameMatch = el.text().match(/-\d+\/\d+/);
-
-          if (groupNameMatch) {
-            groups[groupNumber].groupName = groupNameMatch[0].substr(1);
-          }
-
-          groupNumber += 1;
-          groups[groupNumber] = {};
-          commaSeparated = true;
-
-          if (groups[groupNumber - 1].teacher) {
-            groups[groupNumber].teacher = groups[groupNumber - 1].teacher;
-          }
-
-          if (groups[groupNumber - 1].teacherId) {
-            groups[groupNumber].teacherId = groups[groupNumber - 1].teacherId;
-          }
-
-          if (groups[groupNumber - 1].subject) {
-            groups[groupNumber].subject = groups[groupNumber - 1].subject;
-          }
-        } else {
-          const groupNameMatch = el.text().match(/-\d+\/\d+/);
-
-          if (groupNameMatch) {
-            groups[groupNumber].groupName = groupNameMatch[0].substr(1);
-          }
-          const withElement = (className: string, callback: (child: Cheerio) => void): void => {
-            if (el.hasClass(className)) return callback(el);
-            const children = el.find(`.${className}`);
-            if (children.length > 0) callback(children);
-          };
-
-          const getId = (el: Cheerio, letter: string): string | undefined => {
-            const href = el.attr('href');
-            return new RegExp(`^${letter}(.+)\\.html$`).exec(href)?.[1];
-          }
-
-          withElement('p', (child): void => {
-            if (!groups[groupNumber].subject) groups[groupNumber].subject = '';
-            else groups[groupNumber].subject += ' ';
-            groups[groupNumber].subject += child.text().replace(/-\d+\/\d+/, '');
-          });
-
-          withElement('n', (child): void => {
-            groups[groupNumber].teacher = child.text();
-            groups[groupNumber].teacherId = getId(child, 'n');
-          });
-
-          withElement('o', (child): void => {
-            groups[groupNumber].className = child.text();
-          });
-
-          withElement('s', (child): void => {
-            groups[groupNumber].room = child.text();
-          });
-
-          if (commaSeparated) {
-            groups.slice(0, groups.length - 1).forEach((group, groupIndex): void => {
-              if (!groups[groupIndex].teacher && groups[groupNumber].teacher) {
-                groups[groupIndex].teacher = groups[groupNumber].teacher;
-              }
-
-              if (!groups[groupIndex].teacherId && groups[groupNumber].teacherId) {
-                groups[groupIndex].teacherId = groups[groupNumber].teacherId;
-              }
-
-              if (!groups[groupIndex].subject && groups[groupNumber].subject) {
-                groups[groupIndex].subject = groups[groupNumber].subject;
-              }
-            });
-          }
-        }
+        lines.push([]);
+        return;
       }
+      lines[lines.length-1].push(this.$(element));
     });
 
-    groups = groups.filter(
-      (group): boolean => (Object.getOwnPropertyNames(group).length !== 0),
-    );
+    return lines.flatMap((line): TableLesson[] => {
+      const common: Pick<TableLesson, 'teacher' | 'teacherId' | 'room' | 'roomId' | 'subject'> = { subject: '' };
+      const groups: Partial<Omit<TableLesson, keyof typeof common>>[] = [{}];
+      line.forEach((el) => {
+        if (el[0].type === 'text') {
+          el.text().split(',').forEach((part, index) => {
+            if (index > 0) groups.push({});
+            if (part.trim() === '') return;
+            const groupNameMatch = part.trim().match(/-(\d+\/\d+)/);
+            if (groupNameMatch !== null) groups[groups.length - 1].groupName = groupNameMatch[1];
+          });
+          return;
+        }
 
-    return groups as TableLesson[];
+        const group = groups[groups.length - 1];
+
+        const withElement = (className: string, callback: (child: Cheerio) => void): void => {
+          if (el.hasClass(className)) return callback(el);
+          const children = el.find(`.${className}`);
+          if (children.length > 0) callback(children);
+        };
+
+        const getId = (el: Cheerio, letter: string): string | undefined => {
+          const href = el.attr('href');
+          return new RegExp(`^${letter}(.+)\\.html$`).exec(href)?.[1];
+        }
+
+        withElement('p', (child): void => {
+          const match = child.text().trim().match(/^(.*?)(?:-(\d+\/\d+))?$/);
+          if (!match) return;
+          if (match[2]) group.groupName = match[2];
+          if (match[1]) {
+            if (common.subject) common.subject += ' ';
+            common.subject += match[1].trim();
+          }
+        });
+
+        withElement('o', (child): void => {
+          group.className = child.text();
+        });
+
+        withElement('n', (child): void => {
+          common.teacher = child.text();
+          common.teacherId = getId(child, 'n');
+        });
+
+        withElement('s', (child): void => {
+          common.room = child.text();
+        });
+      });
+      if (common.subject.trim() === '') return [];
+      return groups.map((group) => ({
+        ...common,
+        ...group,
+      }));
+    });
   }
 }
