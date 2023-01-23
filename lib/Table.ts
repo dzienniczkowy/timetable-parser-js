@@ -133,83 +133,67 @@ export default class Table {
       if (element.tagName === 'br') {
         groupNumber += 1;
         groups[groupNumber] = {};
-      } else if (/,/.test(this.$(element).text())) {
-        const groupNameMatch = this.$(element).text().match(/-\d+\/\d+/);
-
-        if (groupNameMatch) {
-          groups[groupNumber].groupName = groupNameMatch[0].substr(1);
-        }
-
-        groupNumber += 1;
-        groups[groupNumber] = {};
-        commaSeparated = true;
-
-        if (groups[groupNumber - 1].teacher) {
-          groups[groupNumber].teacher = groups[groupNumber - 1].teacher;
-        }
-
-        if (groups[groupNumber - 1].subject) {
-          groups[groupNumber].subject = groups[groupNumber - 1].subject;
-        }
       } else {
-        const groupNameMatch = this.$(element).text().match(/-\d+\/\d+/);
+        const el = this.$(element);
+        if (/,/.test(el.text())) {
+          const groupNameMatch = el.text().match(/-\d+\/\d+/);
 
-        if (groupNameMatch) {
-          groups[groupNumber].groupName = groupNameMatch[0].substr(1);
-        }
-
-        if (this.$(element).hasClass('p')) {
-          if (!groups[groupNumber].subject) {
-            groups[groupNumber].subject = this.$(element).text().replace(/-\d+\/\d+/, '');
-          } else {
-            groups[groupNumber].subject += ' ';
-            groups[groupNumber].subject += this.$(element).text().replace(/-\d+\/\d+/, '');
+          if (groupNameMatch) {
+            groups[groupNumber].groupName = groupNameMatch[0].substr(1);
           }
-        }
 
-        if (this.$(element).find('.p').length !== 0) {
-          if (!groups[groupNumber].subject) {
-            groups[groupNumber].subject = this.$(element).find('.p').text().replace(/-\d+\/\d+/, '');
-          } else {
-            groups[groupNumber].subject += ' ';
-            groups[groupNumber].subject += this.$(element).find('.p').text().replace(/-\d+\/\d+/, '');
+          groupNumber += 1;
+          groups[groupNumber] = {};
+          commaSeparated = true;
+
+          if (groups[groupNumber - 1].teacher) {
+            groups[groupNumber].teacher = groups[groupNumber - 1].teacher;
           }
-        }
 
-        if (this.$(element).hasClass('n')) {
-          groups[groupNumber].teacher = this.$(element).text();
-        }
+          if (groups[groupNumber - 1].subject) {
+            groups[groupNumber].subject = groups[groupNumber - 1].subject;
+          }
+        } else {
+          const groupNameMatch = el.text().match(/-\d+\/\d+/);
 
-        if (this.$(element).find('.n').length !== 0) {
-          groups[groupNumber].teacher = this.$(element).find('.n').text();
-        }
+          if (groupNameMatch) {
+            groups[groupNumber].groupName = groupNameMatch[0].substr(1);
+          }
+          const withElement = (className: string, callback: (child: Cheerio) => void): void => {
+            if (el.hasClass(className)) return callback(el);
+            const children = el.find(`.${className}`);
+            if (children.length > 0) callback(children);
+          };
 
-        if (this.$(element).hasClass('o')) {
-          groups[groupNumber].className = this.$(element).text();
-        }
-
-        if (this.$(element).find('.o').length !== 0) {
-          groups[groupNumber].className = this.$(element).find('.o').text();
-        }
-
-        if (this.$(element).hasClass('s')) {
-          groups[groupNumber].room = this.$(element).text();
-        }
-
-        if (this.$(element).find('.s').length !== 0) {
-          groups[groupNumber].room = this.$(element).find('.s').text();
-        }
-
-        if (commaSeparated) {
-          groups.slice(0, groups.length - 1).forEach((group, groupIndex): void => {
-            if (!groups[groupIndex].teacher && groups[groupNumber].teacher) {
-              groups[groupIndex].teacher = groups[groupNumber].teacher;
-            }
-
-            if (!groups[groupIndex].subject && groups[groupNumber].subject) {
-              groups[groupIndex].subject = groups[groupNumber].subject;
-            }
+          withElement('p', (child): void => {
+            if (!groups[groupNumber].subject) groups[groupNumber].subject = '';
+            else groups[groupNumber].subject += ' ';
+            groups[groupNumber].subject += child.text().replace(/-\d+\/\d+/, '');
           });
+
+          withElement('n', (child): void => {
+            groups[groupNumber].teacher = child.text();
+          });
+
+          withElement('o', (child): void => {
+            groups[groupNumber].className = child.text();
+          });
+
+          withElement('s', (child): void => {
+            groups[groupNumber].room = child.text();
+          });
+
+          if (commaSeparated) {
+            groups.slice(0, groups.length - 1).forEach((group, groupIndex): void => {
+              if (!groups[groupIndex].teacher && groups[groupNumber].teacher) {
+                groups[groupIndex].teacher = groups[groupNumber].teacher;
+              }
+
+              if (!groups[groupIndex].subject && groups[groupNumber].subject) {
+                groups[groupIndex].subject = groups[groupNumber].subject;
+              }
+            });
+          }
         }
       }
     });
