@@ -173,6 +173,7 @@ export default class Table {
 
         withElement('o', (child): void => {
           group.className = child.text();
+          group.classId = getId(child, 'o');
         });
 
         withElement('n', (child): void => {
@@ -182,6 +183,7 @@ export default class Table {
 
         withElement('s', (child): void => {
           common.room = child.text();
+          common.roomId = getId(child, 's');
         });
       });
       if (common.subject.trim() === '') return [];

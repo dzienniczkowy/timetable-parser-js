@@ -5,6 +5,7 @@
         "teacher": "Kr",
         "teacherId": "29",
         "className": "4Tm",
+        "classId": "28",
         "subject": "u_hist.i sp."
       }
     ],
@@ -13,6 +14,7 @@
         "teacher": "Kr",
         "teacherId": "29",
         "className": "4Tp",
+        "classId": "29",
         "subject": "u_hist.i sp."
       }
     ],
@@ -21,6 +23,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "4Ti",
+        "classId": "27",
         "subject": "u_hist.i sp."
       }
     ],
@@ -29,6 +32,7 @@
         "teacher": "Kr",
         "teacherId": "29",
         "className": "2Tc",
+        "classId": "8",
         "subject": "historia"
       }
     ],
@@ -37,6 +41,7 @@
         "teacher": "ZJ",
         "teacherId": "67",
         "className": "3Ti",
+        "classId": "19",
         "subject": "j.polski"
       }
     ],
@@ -45,6 +50,7 @@
         "teacher": "ZJ",
         "teacherId": "67",
         "className": "2Ti",
+        "classId": "10",
         "subject": "j.polski"
       }
     ],
@@ -53,6 +59,7 @@
         "teacher": "ZJ",
         "teacherId": "67",
         "className": "1Ti",
+        "classId": "2",
         "subject": "j.polski"
       }
     ],
@@ -61,6 +68,7 @@
         "teacher": "RM",
         "teacherId": "50",
         "className": "1Ti",
+        "classId": "2",
         "subject": "biologia"
       }
     ],
@@ -69,6 +77,7 @@
         "teacher": "RM",
         "teacherId": "50",
         "className": "1Zp",
+        "classId": "7",
         "subject": "biologia"
       }
     ],
@@ -81,6 +90,7 @@
         "teacher": "Kr",
         "teacherId": "29",
         "className": "4Tp",
+        "classId": "29",
         "groupName": "2/3",
         "subject": "r_geografia"
       }
@@ -90,6 +100,7 @@
         "teacher": "Kr",
         "teacherId": "29",
         "className": "4Tp",
+        "classId": "29",
         "groupName": "2/3",
         "subject": "r_geografia"
       }
@@ -99,6 +110,7 @@
         "teacher": "JP",
         "teacherId": "43",
         "className": "1Tp",
+        "classId": "4",
         "subject": "chemia"
       }
     ],
@@ -107,6 +119,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "3Tc",
+        "classId": "17",
         "subject": "u_hist.i sp."
       }
     ],
@@ -115,6 +128,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "3Ti",
+        "classId": "19",
         "subject": "u_hist.i sp."
       }
     ],
@@ -123,6 +137,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "2Tn",
+        "classId": "12",
         "subject": "historia"
       }
     ],
@@ -131,6 +146,7 @@
         "teacher": "BR",
         "teacherId": "7",
         "className": "1Zp",
+        "classId": "7",
         "subject": "religia"
       }
     ],
@@ -145,6 +161,7 @@
         "teacher": "Kr",
         "teacherId": "29",
         "className": "4Tp",
+        "classId": "29",
         "groupName": "2/3",
         "subject": "r_geografia"
       }
@@ -154,6 +171,7 @@
         "teacher": "Kr",
         "teacherId": "29",
         "className": "4Tp",
+        "classId": "29",
         "groupName": "2/3",
         "subject": "r_geografia"
       }
@@ -163,6 +181,7 @@
         "teacher": "JW",
         "teacherId": "65",
         "className": "1Tc",
+        "classId": "1",
         "subject": "r_matematyka"
       }
     ],
@@ -171,6 +190,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "1Tc",
+        "classId": "1",
         "subject": "wos"
       }
     ],
@@ -179,6 +199,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "4Ti",
+        "classId": "27",
         "subject": "u_hist.i sp."
       }
     ],
@@ -187,6 +208,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "4Ti",
+        "classId": "27",
         "subject": "u_hist.i sp."
       }
     ],
@@ -195,6 +217,7 @@
         "teacher": "AP",
         "teacherId": "48",
         "className": "2Ti",
+        "classId": "10",
         "subject": "godz.wych"
       }
     ],
@@ -203,6 +226,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "2Tp",
+        "classId": "13",
         "subject": "historia"
       }
     ],
@@ -211,6 +235,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "3Za",
+        "classId": "22",
         "subject": "wos"
       }
     ],
@@ -220,6 +245,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "3Ze",
+        "classId": "24",
         "subject": "wos"
       }
     ]
@@ -230,6 +256,7 @@
         "teacher": "Dę",
         "teacherId": "13",
         "className": "3Tk",
+        "classId": "20",
         "groupName": "3/3",
         "subject": "r_informat."
       },
@@ -237,6 +264,7 @@
         "teacher": "Dę",
         "teacherId": "13",
         "className": "3Tp",
+        "classId": "21",
         "groupName": "3/3",
         "subject": "r_informat."
       },
@@ -244,6 +272,7 @@
         "teacher": "Dę",
         "teacherId": "13",
         "className": "3Te",
+        "classId": "18",
         "groupName": "3/3",
         "subject": "r_informat."
       }
@@ -253,6 +282,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "1Tt",
+        "classId": "5",
         "subject": "wos"
       }
     ],
@@ -261,6 +291,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "4Ti",
+        "classId": "27",
         "subject": "u_hist.i sp."
       }
     ],
@@ -269,6 +300,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "2Ti",
+        "classId": "10",
         "subject": "historia"
       }
     ],
@@ -277,6 +309,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "3Tk",
+        "classId": "20",
         "subject": "u_hist.i sp."
       }
     ],
@@ -285,6 +318,7 @@
         "teacher": "PB",
         "teacherId": "41",
         "className": "3Te",
+        "classId": "18",
         "subject": "matematyka"
       }
     ],
@@ -293,6 +327,7 @@
         "teacher": "Kr",
         "teacherId": "29",
         "className": "1Tm",
+        "classId": "3",
         "subject": "wos"
       }
     ],
@@ -301,6 +336,7 @@
         "teacher": "Kr",
         "teacherId": "29",
         "className": "2Tm",
+        "classId": "11",
         "subject": "historia"
       }
     ],
@@ -309,6 +345,7 @@
         "teacher": "Kr",
         "teacherId": "29",
         "className": "1Zm",
+        "classId": "6",
         "subject": "historia"
       }
     ],
@@ -321,6 +358,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "3Tp",
+        "classId": "21",
         "subject": "u_hist.i sp."
       }
     ],
@@ -329,6 +367,7 @@
         "teacher": "ZJ",
         "teacherId": "67",
         "className": "1Ti",
+        "classId": "2",
         "subject": "j.polski"
       }
     ],
@@ -337,6 +376,7 @@
         "teacher": "ZJ",
         "teacherId": "67",
         "className": "1Ti",
+        "classId": "2",
         "subject": "j.polski"
       }
     ],
@@ -345,6 +385,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "1Tc",
+        "classId": "1",
         "subject": "historia"
       }
     ],
@@ -353,6 +394,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "1Tc",
+        "classId": "1",
         "subject": "godz.wych"
       }
     ],
@@ -361,6 +403,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "1Tt",
+        "classId": "5",
         "subject": "historia"
       }
     ],
@@ -369,6 +412,7 @@
         "teacher": "Kr",
         "teacherId": "29",
         "className": "1Ti",
+        "classId": "2",
         "subject": "historia"
       }
     ],
@@ -377,6 +421,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "1Zp",
+        "classId": "7",
         "subject": "historia"
       }
     ],
@@ -385,6 +430,7 @@
         "teacher": "Ho",
         "teacherId": "25",
         "className": "3Zb",
+        "classId": "23",
         "subject": "wos"
       }
     ],

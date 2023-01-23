@@ -7,10 +7,12 @@ export interface TableHour {
 export interface TableLesson {
   subject: string;
   room?: string;
+  roomId?: string;
   groupName?: string;
   teacher?: string;
   teacherId?: string;
   className?: string;
+  classId?: string;
 }
 
 export interface List {
