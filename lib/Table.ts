@@ -52,9 +52,11 @@ export default class Table {
       const lessons = this.$(row).find('.l').toArray();
       lessons.forEach((lesson): void => {
         if (!days[index]) days.push([]);
-        if (this.$(lesson).children().length === 0) {
-          days[index].push([]);
-        } else {
+        if (this.$(lesson).text().trim() === '') {
+					days[index].push([]);
+				} else if (this.$(lesson).children().length === 0) {
+					days[index].push([{subject: this.$(lesson).text().trim()}]);
+				} else {
           const groups = this.parseLessons(this.$(lesson).contents().toArray());
           days[index].push(groups);
         }
@@ -79,8 +81,10 @@ export default class Table {
     rows.forEach((row): void => {
       const lessons = this.$(row).find('.l').toArray();
       lessons.forEach((lesson, index): void => {
-        if (this.$(lesson).children().length === 0) {
-          days[index].push([]);
+        if (this.$(lesson).text().trim() === '') {
+					days[index].push([]);
+				} else if (this.$(lesson).children().length === 0) {
+          days[index].push([{subject: this.$(lesson).text().trim()}]);
         } else {
           const groups = this.parseLessons(this.$(lesson).contents().toArray());
           days[index].push(groups);
