@@ -1,11 +1,11 @@
-import * as cheerio from 'cheerio';
+import { load } from 'cheerio';
 import { List, ListItem } from './types';
 
 export default class TimetableList {
-  public $: CheerioStatic;
+  public $: cheerio.Root;
 
   public constructor(html: string) {
-    this.$ = cheerio.load(html);
+    this.$ = load(html);
   }
 
   public getList(): List {
@@ -50,7 +50,7 @@ export default class TimetableList {
     nodes.forEach((node): void => {
       values.push({
         name: this.$(node).text(),
-        value: this.$(node).attr('value'),
+        value: this.$(node).attr('value') || '',
       });
     });
 
@@ -98,10 +98,10 @@ export default class TimetableList {
     const values: ListItem[] = [];
 
     const nodes = this.$(query).toArray();
-    nodes.forEach((node: CheerioElement): void => {
+    nodes.forEach((node: cheerio.Element): void => {
       values.push({
         name: this.$(node).text(),
-        value: this.$(node).attr('href').replace('.html', '').replace(`plany/${prefix}`, ''),
+        value: this.$(node).attr('href')?.replace('.html', '').replace(`plany/${prefix}`, '') || '',
       });
     });
 
