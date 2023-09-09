@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc --p tsconfig.build.json",
+    "build": "del-cli dist && tsc --p tsconfig.build.json",
     "lint": "eslint ./lib/ ./test/ --ext .js,.ts",
     "lint:fix": "eslint ./lib/ ./test/ --ext .js,.ts --fix",
     "prepublishOnly": "npm run build",
@@ -24,6 +24,7 @@
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
     "chai": "^4.3.6",
+    "del-cli": "^5.1.0",
     "eslint": "^8.49.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "mocha": "^10.2.0",
