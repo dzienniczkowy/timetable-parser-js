@@ -2,12 +2,12 @@
   "name": "@wulkanowy/timetable-parser",
   "version": "1.5.0",
   "description": "VULCAN Optivum Timetable parser for JavaScript",
-  "main": "dist/lib/index.js",
-  "types": "dist/lib/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "lint": "./node_modules/.bin/eslint ./lib/ ./test/ --ext .js,.ts",
-    "lint:fix": "./node_modules/.bin/eslint ./lib/ ./test/ --ext .js,.ts --fix",
+    "build": "tsc --p tsconfig.build.json",
+    "lint": "eslint ./lib/ ./test/ --ext .js,.ts",
+    "lint:fix": "eslint ./lib/ ./test/ --ext .js,.ts --fix",
     "prepublishOnly": "npm run build",
     "release": "release-it --only-version",
     "test": "mocha --reporter spec --require ts-node/register test/**/*.ts"
@@ -19,18 +19,17 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/chai": "^4.3.5",
+    "@types/chai": "^4.3.6",
     "@types/mocha": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.59.2",
-    "@typescript-eslint/parser": "^5.59.2",
-    "chai": "^4.3.7",
-    "eslint": "^8.40.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.27.5",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
+    "chai": "^4.3.6",
+    "eslint": "^8.49.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
     "mocha": "^10.2.0",
     "release-it": "^15.10.3",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.4"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12"

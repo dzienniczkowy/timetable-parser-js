@@ -1,7 +1,7 @@
-import { load } from 'cheerio';
+import { CheerioAPI, load } from 'cheerio';
 
 export default class Timetable {
-  public $: cheerio.Root;
+  public $: CheerioAPI;
 
   public constructor(html: string) {
     this.$ = load(html);

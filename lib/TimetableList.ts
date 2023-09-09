@@ -1,8 +1,8 @@
-import { load } from 'cheerio';
+import { CheerioAPI, load } from 'cheerio';
 import { List, ListItem } from './types';
 
 export default class TimetableList {
-  public $: cheerio.Root;
+  public $: CheerioAPI;
 
   public constructor(html: string) {
     this.$ = load(html);
@@ -97,8 +97,7 @@ export default class TimetableList {
   private getSubTypeValue(query: string, prefix: string): ListItem[] {
     const values: ListItem[] = [];
 
-    const nodes = this.$(query).toArray();
-    nodes.forEach((node: cheerio.Element): void => {
+    this.$(query).each((_, node) => {
       values.push({
         name: this.$(node).text(),
         value: this.$(node).attr('href')?.replace('.html', '').replace(`plany/${prefix}`, '') || '',
