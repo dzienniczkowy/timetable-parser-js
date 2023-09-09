@@ -14,33 +14,33 @@ $ npm install @wulkanowy/timetable-parser
 
 # Usage
 
-## Parsing TimeTable Index Page
+## Parsing Timetable Index Page
 ```js
-import { TimeTable } from '@wulkanowy/timetable-parser';
+import { Timetable } from '@wulkanowy/timetable-parser';
 
-const table = new TimeTable(/*Content of index.html file*/);
+const timetable = new Timetable(/*Content of index.html file*/);
 
 // Returns: String containing title of the timetable
-const title = table.getTitle()
+const title = timetable.getTitle()
 
 // Returns: String containing path to lista.html file
-const list = table.getListPath()
+const list = timetable.getListPath()
 ```
 
-## Parsing TimeTable List
+## Parsing Timetable List
 ```js
-import { TimeTableList } from '@wulkanowy/timetable-parser';
+import { TimetableList } from '@wulkanowy/timetable-parser';
 
-const table = new TimeTableList(/*Content of lista.html file*/);
+const timetableList = new TimetableList(/*Content of lista.html file*/);
 
 // Returns: Object of 3 lists
-const list = table.getList();
+const list = timetableList.getList();
 
 // Returns: String containing path to school logo
-const logo = table.getLogoSrc()
+const logo = timetableList.getLogoSrc()
 ```
 
-## Parsing TimeTable
+## Parsing Table
 ```js
 import { Table } from '@wulkanowy/timetable-parser';
 
