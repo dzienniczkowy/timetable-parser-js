@@ -1,11 +1,11 @@
-import * as cheerio from 'cheerio';
+import { load } from 'cheerio';
 import {TableHour, TableLesson} from './types';
 
 export default class Table {
-  public $: CheerioStatic;
+  public $: cheerio.Root;
 
   public constructor(html: string) {
-    this.$ = cheerio.load(html);
+    this.$ = load(html);
   }
 
   /*
@@ -18,14 +18,14 @@ export default class Table {
   public getDayNames(): string[] {
     return this.$('.tabela tr:first-of-type th')
       .toArray()
-      .map((element: CheerioElement): string => this.$(element).text())
+      .map((element: cheerio.Element): string => this.$(element).text())
       .slice(2);
   }
 
   public getHours(): Record<number, TableHour> {
     const rows = this.$('.tabela tr:not(:first-of-type)').toArray();
     const hours: Record<number, TableHour> = {};
-    rows.forEach((row: CheerioElement): void => {
+    rows.forEach((row: cheerio.Element): void => {
       const number = parseInt(this.$(row).find('.nr').text().trim(), 10);
       const timesText = this.$(row).find('.g').text();
       const [timeFrom, timeTo] = timesText
@@ -52,10 +52,12 @@ export default class Table {
       const lessons = this.$(row).find('.l').toArray();
       lessons.forEach((lesson): void => {
         if (!days[index]) days.push([]);
-        if (this.$(lesson).children().length === 0) {
-          days[index].push([]);
-        } else {
-          const groups = this.parseLessons(this.$(lesson).contents().toArray());
+        if (this.$(lesson).text().trim() === '') {
+					days[index].push([]);
+				} else if (this.$(lesson).children().length === 0) {
+					days[index].push([{subject: this.$(lesson).text().trim()}]);
+				} else {
+          const groups = this.parseLessons(this.$(lesson).contents().toArray() as cheerio.TagElement[]);
           days[index].push(groups);
         }
       });
@@ -66,7 +68,7 @@ export default class Table {
 
 
   public getDays(): TableLesson[][][] {
-    const rows = this.$('.tabela tr:not(:first-of-type)').toArray();
+    const rows = this.$('.tabela tr:not(:first-of-type)').toArray() as cheerio.TagElement[];
 
     const days: TableLesson[][][] = [
       [],
@@ -79,10 +81,12 @@ export default class Table {
     rows.forEach((row): void => {
       const lessons = this.$(row).find('.l').toArray();
       lessons.forEach((lesson, index): void => {
-        if (this.$(lesson).children().length === 0) {
-          days[index].push([]);
+        if (this.$(lesson).text().trim() === '') {
+					days[index].push([]);
+				} else if (this.$(lesson).children().length === 0) {
+          days[index].push([{subject: this.$(lesson).text().trim()}]);
         } else {
-          const groups = this.parseLessons(this.$(lesson).contents().toArray());
+          const groups = this.parseLessons(this.$(lesson).contents().toArray() as cheerio.TagElement[]);
           days[index].push(groups);
         }
       });
@@ -123,10 +127,10 @@ export default class Table {
       .filter((e): boolean => e !== '')[0] || '';
   }
 
-  private parseLessons(data: CheerioElement[]): TableLesson[] {
-    const lines: Cheerio[][] = [[]];
+  private parseLessons(data: cheerio.TagElement[]): TableLesson[] {
+    const lines: cheerio.Cheerio[][] = [[]];
 
-    data.forEach((element): void => {
+    data.forEach((element: cheerio.TagElement): void => {
       if (element.tagName === 'br') {
         lines.push([]);
         return;
@@ -150,14 +154,14 @@ export default class Table {
 
         const group = groups[groups.length - 1];
 
-        const withElement = (className: string, callback: (child: Cheerio) => void): void => {
+        const withElement = (className: string, callback: (child: cheerio.Cheerio) => void): void => {
           if (el.hasClass(className)) return callback(el);
           const children = el.find(`.${className}`);
           if (children.length > 0) callback(children);
         };
 
-        const getId = (el: Cheerio, letter: string): string | undefined => {
-          const href = el.attr('href');
+        const getId = (el: cheerio.Cheerio, letter: string): string | undefined => {
+          const href = el.attr('href') || '';
           return new RegExp(`^${letter}(.+)\\.html$`).exec(href)?.[1];
         }
 

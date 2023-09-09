@@ -1,0 +1,340 @@
+[
+  [[{ "subject": "ckz" }], [], [], [], [], [], [], [], [], [], []],
+  [
+    [],
+    [
+      {
+        "subject": "zaj. wych.",
+        "teacher": "LG",
+        "teacherId": "29",
+        "room": "27",
+        "roomId": "18"
+      }
+    ],
+    [
+      {
+        "subject": "r_matematyka",
+        "teacher": "LG",
+        "teacherId": "29",
+        "room": "27",
+        "roomId": "18"
+      }
+    ],
+    [
+      {
+        "subject": "religia",
+        "teacher": "RG",
+        "teacherId": "67",
+        "room": "33",
+        "roomId": "21"
+      }
+    ],
+    [
+      {
+        "subject": "j.angielski",
+        "teacher": "KT",
+        "teacherId": "41",
+        "room": "37",
+        "roomId": "23",
+        "groupName": "1/2"
+      },
+      {
+        "subject": "r_informat.",
+        "teacher": "NA",
+        "teacherId": "56",
+        "room": "13",
+        "roomId": "4",
+        "groupName": "2/2"
+      }
+    ],
+    [
+      {
+        "subject": "j.angielski",
+        "teacher": "KT",
+        "teacherId": "41",
+        "room": "47",
+        "roomId": "25",
+        "groupName": "1/2"
+      },
+      {
+        "subject": "r_informat.",
+        "teacher": "NA",
+        "teacherId": "56",
+        "room": "13",
+        "roomId": "4",
+        "groupName": "2/2"
+      }
+    ],
+    [
+      {
+        "subject": "wf",
+        "teacher": "PK",
+        "teacherId": "63",
+        "room": "SGM",
+        "roomId": "31",
+        "groupName": "1/2"
+      },
+      {
+        "subject": "j.niemiecki",
+        "teacher": "KD",
+        "teacherId": "47",
+        "room": "13a",
+        "roomId": "5",
+        "groupName": "2/2"
+      }
+    ],
+    [
+      {
+        "subject": "wf",
+        "teacher": "PK",
+        "teacherId": "63",
+        "room": "SI",
+        "roomId": "32",
+        "groupName": "1/2"
+      },
+      {
+        "subject": "j.angielski",
+        "teacher": "KT",
+        "teacherId": "41",
+        "room": "A21",
+        "roomId": "27",
+        "groupName": "2/2"
+      }
+    ],
+    [
+      {
+        "subject": "UiS",
+        "teacher": "SC",
+        "teacherId": "73",
+        "room": "23",
+        "roomId": "13"
+      }
+    ],
+    [
+      {
+        "subject": "UiS",
+        "teacher": "SC",
+        "teacherId": "73",
+        "room": "23",
+        "roomId": "13"
+      }
+    ],
+    []
+  ],
+  [[{ "subject": "ckz" }], [], [], [], [], [], [], [], [], [], []],
+  [
+    [
+      {
+        "subject": "j.polski",
+        "teacher": "KA",
+        "teacherId": "33",
+        "room": "22",
+        "roomId": "12"
+      }
+    ],
+    [
+      {
+        "subject": "j.polski",
+        "teacher": "KA",
+        "teacherId": "33",
+        "room": "22",
+        "roomId": "12"
+      }
+    ],
+    [
+      {
+        "subject": "wos",
+        "teacher": "WE",
+        "teacherId": "80",
+        "room": "28",
+        "roomId": "19"
+      }
+    ],
+    [
+      {
+        "subject": "matematyka",
+        "teacher": "LG",
+        "teacherId": "29",
+        "room": "18",
+        "roomId": "10"
+      }
+    ],
+    [
+      {
+        "subject": "matematyka",
+        "teacher": "LG",
+        "teacherId": "29",
+        "room": "18",
+        "roomId": "10"
+      }
+    ],
+    [
+      {
+        "subject": "historia",
+        "teacher": "KB",
+        "teacherId": "46",
+        "room": "37",
+        "roomId": "23"
+      }
+    ],
+    [
+      {
+        "subject": "biologia",
+        "teacher": "EP",
+        "teacherId": "59",
+        "room": "11",
+        "roomId": "1"
+      }
+    ],
+    [
+      {
+        "subject": "fizyka",
+        "teacher": "CZ",
+        "teacherId": "19",
+        "room": "12",
+        "roomId": "3"
+      }
+    ],
+    [
+      {
+        "subject": "j.angielski",
+        "teacher": "KT",
+        "teacherId": "41",
+        "room": "17",
+        "roomId": "9",
+        "groupName": "1/2"
+      },
+      {
+        "subject": "wf",
+        "teacher": "PK",
+        "teacherId": "63",
+        "room": "SGM",
+        "roomId": "31",
+        "groupName": "2/2"
+      }
+    ],
+    [],
+    []
+  ],
+  [
+    [],
+    [],
+    [
+      {
+        "subject": "j.polski",
+        "teacher": "KA",
+        "teacherId": "33",
+        "room": "22",
+        "roomId": "12"
+      }
+    ],
+    [
+      {
+        "subject": "wf",
+        "teacher": "PK",
+        "teacherId": "63",
+        "room": "SGM",
+        "roomId": "31",
+        "groupName": "1/2"
+      },
+      {
+        "subject": "j.angielski",
+        "teacher": "KT",
+        "teacherId": "41",
+        "room": "A21",
+        "roomId": "27",
+        "groupName": "2/2"
+      }
+    ],
+    [
+      {
+        "subject": "j.niemiecki",
+        "teacher": "SB",
+        "teacherId": "34",
+        "room": "37",
+        "roomId": "23",
+        "groupName": "1/2"
+      },
+      {
+        "subject": "j.angielski",
+        "teacher": "KT",
+        "teacherId": "41",
+        "room": "A21",
+        "roomId": "27",
+        "groupName": "2/2"
+      }
+    ],
+    [
+      {
+        "subject": "r_informat.",
+        "teacher": "NA",
+        "teacherId": "56",
+        "room": "13",
+        "roomId": "4",
+        "groupName": "1/2"
+      },
+      {
+        "subject": "wf",
+        "teacher": "PK",
+        "teacherId": "63",
+        "room": "SGM",
+        "roomId": "31",
+        "groupName": "2/2"
+      }
+    ],
+    [
+      {
+        "subject": "r_informat.",
+        "teacher": "NA",
+        "teacherId": "56",
+        "room": "13",
+        "roomId": "4",
+        "groupName": "1/2"
+      },
+      {
+        "subject": "wf",
+        "teacher": "PK",
+        "teacherId": "63",
+        "room": "SI",
+        "roomId": "32",
+        "groupName": "2/2"
+      }
+    ],
+    [
+      {
+        "subject": "chemia",
+        "teacher": "MW",
+        "teacherId": "81",
+        "room": "25",
+        "roomId": "15"
+      }
+    ],
+    [
+      {
+        "subject": "matematyka",
+        "teacher": "LG",
+        "teacherId": "29",
+        "room": "27",
+        "roomId": "18"
+      }
+    ],
+    [
+      {
+        "subject": "religia",
+        "teacher": "RG",
+        "teacherId": "67",
+        "room": "33",
+        "roomId": "21"
+      }
+    ],
+    [
+      {
+        "subject": "geografia",
+        "teacher": "GV",
+        "teacherId": "35",
+        "room": "32",
+        "roomId": "20"
+      }
+    ]
+  ]
+]

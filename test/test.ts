@@ -376,4 +376,76 @@ describe('Table test', (): void => {
       expect(generatedDate).to.eql('2018-02-17');
     });
   });
+
+  // Plain text
+  describe('Plain class table', (): void => {
+    const plainClassTableFilename = path.join(__dirname, 'fixtures', 'plain-oddzial.html');
+    const plainClassTableHTML = fs.readFileSync(plainClassTableFilename, {
+      encoding: 'utf8',
+    });
+
+    const plainClassDaysValuesFilename = path.join(__dirname, 'expected', 'plain-class-days.json');
+    const plainClassDaysValuesJSON = fs.readFileSync(plainClassDaysValuesFilename, {
+      encoding: 'utf8',
+    });
+    const plainClassDaysValues = JSON.parse(plainClassDaysValuesJSON);
+
+    const table = new Table(plainClassTableHTML);
+    it('Cheerio init', (): void => {
+      expect((): Table => new Table(plainClassTableHTML)).not.to.throw();
+    });
+
+    it('Day names return value check', (): void => {
+      const dayNames = table.getDayNames();
+      expect(dayNames).to.eql([
+        'Poniedziałek',
+        'Wtorek',
+        'Środa',
+        'Czwartek',
+        'Piątek',
+      ]);
+    });
+
+    it('getRawDays does not throw an error', (): void => {
+      table.getRawDays();
+    });
+
+
+    it('Table hours return check', (): void => {
+      const tableHours = table.getHours();
+      expect(tableHours).to.eql({
+        0: { number: 0, timeFrom: '7:10', timeTo: '7:55' },
+        1: { number: 1, timeFrom: '8:00', timeTo: '8:45' },
+        2: { number: 2, timeFrom: '8:50', timeTo: '9:35' },
+        3: { number: 3, timeFrom: '9:40', timeTo: '10:25' },
+        4: { number: 4, timeFrom: '10:40', timeTo: '11:25' },
+        5: { number: 5, timeFrom: '11:30', timeTo: '12:15' },
+        6: { number: 6, timeFrom: '12:20', timeTo: '13:05' },
+        7: { number: 7, timeFrom: '13:10', timeTo: '13:55' },
+        8: { number: 8, timeFrom: '14:00', timeTo: '14:45' },
+        9: { number: 9, timeFrom: '14:50', timeTo: '15:35' },
+        10: { number: 10, timeFrom: '15:40', timeTo: '16:25' },
+      });
+    });
+
+    it('Table days return check', (): void => {
+      const tableDays = table.getDays();
+      expect(tableDays).to.eql(plainClassDaysValues);
+    });
+
+    it('Table title', (): void => {
+      const title = table.getTitle();
+      expect(title).to.eql('4as 4TMt');
+    });
+
+    it('Table version info', (): void => {
+      const versionInfo = table.getVersionInfo();
+      expect(versionInfo).to.eql('13 lutego 2023 r.');
+    });
+
+    it('Table generated date', (): void => {
+      const generatedDate = table.getGeneratedDate();
+      expect(generatedDate).to.eql('2023-02-09');
+    });
+  });
 });

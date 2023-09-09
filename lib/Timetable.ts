@@ -1,10 +1,10 @@
-import * as cheerio from 'cheerio';
+import { load } from 'cheerio';
 
 export default class Timetable {
-  public $: CheerioStatic;
+  public $: cheerio.Root;
 
   public constructor(html: string) {
-    this.$ = cheerio.load(html);
+    this.$ = load(html);
   }
 
   public getTitle(): string {
@@ -12,6 +12,6 @@ export default class Timetable {
   }
 
   public getListPath(): string {
-    return this.$('frame[name="list"]').attr('src');
+    return this.$('frame[name="list"]').attr('src') || '';
   }
 }
