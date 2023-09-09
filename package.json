@@ -4,11 +4,14 @@
   "description": "VULCAN Optivum Timetable parser for JavaScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "build": "del-cli dist && tsc --p tsconfig.build.json",
     "lint": "eslint ./lib/ ./test/ --ext .js,.ts",
     "lint:fix": "eslint ./lib/ ./test/ --ext .js,.ts --fix",
-    "prepublishOnly": "npm run build",
+    "prepare": "npm run build",
     "release": "release-it --only-version",
     "test": "mocha --reporter spec --require ts-node/register test/**/*.ts"
   },
